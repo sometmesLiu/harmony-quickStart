@@ -1,4 +1,5 @@
-import {QuickStartPage} from 'quickstart'
+//import {QuickStartPage} from 'quickstart'
+import {CourseLearning} from 'learning'
 
 
 @Entry
@@ -6,7 +7,8 @@ import {QuickStartPage} from 'quickstart'
 struct Index {
   build() {
     Column() {
-      QuickStartPage()
+      //QuickStartPage()
+      CourseLearning()
     }
     .backgroundColor('#F1F3F5')
     .padding({ top: 36, bottom: 28 })
