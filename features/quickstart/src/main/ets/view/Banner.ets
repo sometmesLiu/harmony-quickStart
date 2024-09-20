@@ -4,20 +4,21 @@ import { bufferToString } from '../util/BufferUtil';
 @Preview
 @Component
 export struct Banner {
-  @State bannerList: Array<BannerClass> = []
-  aboutToAppear(): void {
-    this.getBannerDataFromJSON();
-  }
-  getBannerDataFromJSON() {
-    getContext(this).resourceManager.getRawFileContent('BannerData.json').then(value => {
-      // 获取buffer内容
-      let buffer: ArrayBufferLike = value.buffer;
-      // 转换为字符串
-      let res: string =  bufferToString(buffer);
-      // 解析为数据结构
-      this.bannerList = JSON.parse(res) as BannerClass[];
-    })
-  }
+  @State bannerList: Array<BannerClass> = [
+    new BannerClass('pic0', 'app.media.banner_pic0',
+      'https://developer.huawei.com/consumer/cn/training/course/video/C101718352529709527'),
+    new BannerClass('pic1', 'app.media.banner_pic1',
+      'https://developer.huawei.com/consumer/cn/'),
+    new BannerClass('pic2', 'app.media.banner_pic2',
+      'https://developer.huawei.com/consumer/cn/deveco-studio/'),
+    new BannerClass('pic3', 'app.media.banner_pic3',
+      'https://developer.huawei.com/consumer/cn/arkts/'),
+    new BannerClass('pic4', 'app.media.banner_pic4',
+      'https://developer.huawei.com/consumer/cn/arkui/'),
+    new BannerClass('pic5', 'app.media.banner_pic5',
+      'https://developer.huawei.com/consumer/cn/sdk')
+  ]
+
   build() {
     Swiper() {
       ForEach(this.bannerList, (item: BannerClass, index: number) => {
